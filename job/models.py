@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # DATA BASE 
 def image_upload(instance, filename):
     image_name , extension = filename.split(".")
-    return "jobs/%s.%s"%(image_name.id , extension)
+    return "jobs/%s.%s"%(image_name , extension)
 
 JOB_TYPE = [('Full Time' , 'Full Time') , ('Part time' , 'Part Time')]
 class Job(models.Model): #table
@@ -24,8 +24,8 @@ class Job(models.Model): #table
     slug = models.SlugField(null=True, blank=True)
 
     def save(self ,*args ,**kwargs):
-        self.slug = slugify(self.title)
-        super(Job,self).save(*args , **kwargs)
+        self.slug = slugify(self.title) 
+        super(Job,self).save(*args , **kwargs) 
         
     def __str__(self):
         return self.title

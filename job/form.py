@@ -12,4 +12,4 @@ class jobform(forms.ModelForm):
     class Meta:
         model = Job
         fields = '__all__'
-        exclude = ('slug','owner') # show all objects without slug
+        exclude = ('owner','slug') # show all objects without slug
